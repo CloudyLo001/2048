@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#faf8ef" />
+    <title>Rock 2048</title>
+  </head>
+  <body>
+    <main id="app">
+      <canvas id="game-canvas" aria-label="3D 2048 board"></canvas>
+
+      <header id="hud">
+        <div class="hud-row">
+          <div id="logo">2048</div>
+          <div class="hud-right">
+            <div class="hud-stats">
+              <div class="stat"><span>Score</span><strong id="score-value">0</strong></div>
+              <div class="stat"><span>Best</span><strong id="best-value">0</strong></div>
+            </div>
+            <div class="hud-buttons">
+              <button id="new-button" type="button">New</button>
+              <button id="undo-button" type="button" disabled>Undo</button>
+              <button id="settings-button" type="button" aria-label="Settings" aria-expanded="false">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                  <path fill="currentColor" d="M19.4 13a7.7 7.7 0 0 0 0-2l2.1-1.6-2-3.5-2.5 1a7.8 7.8 0 0 0-1.7-1L15 3.3H9l-.3 2.6a7.8 7.8 0 0 0-1.7 1l-2.5-1-2 3.5L4.6 11a7.7 7.7 0 0 0 0 2l-2.1 1.6 2 3.5 2.5-1a7.8 7.8 0 0 0 1.7 1l.3 2.6h6l.3-2.6a7.8 7.8 0 0 0 1.7-1l2.5 1 2-3.5L19.4 13ZM12 15.5A3.5 3.5 0 1 1 12 8.5a3.5 3.5 0 0 1 0 7Z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <p id="tagline">Join the stones and get to the <strong>2048</strong> crystal.</p>
+      </header>
+
+      <div id="status-line" role="status" aria-live="polite">Loading stone blocks…</div>
+
+      <aside id="settings-panel" hidden>
+        <h2>Settings</h2>
+        <fieldset id="finish-group">
+          <legend>Block finish</legend>
+          <label><input type="radio" name="finish" value="natural" checked /> Natural</label>
+          <label><input type="radio" name="finish" value="polished" /> Polished</label>
+          <label><input type="radio" name="finish" value="matte" /> Matte</label>
+          <label><input type="radio" name="finish" value="plastic" /> Plastic</label>
+          <label><input type="radio" name="finish" value="metallic" /> Metallic</label>
+          <label><input type="radio" name="finish" value="wet" /> Wet gloss</label>
+        </fieldset>
+        <label class="row"><input type="checkbox" id="rubble-toggle" checked /> Rubble on merge</label>
+        <label class="row"><input type="checkbox" id="shake-toggle" checked /> Camera shake</label>
+        <label class="row"><input type="checkbox" id="sound-toggle" checked /> Sound</label>
+        <p class="hint">Right-drag or two-finger drag to look around. Swipe or use arrow keys / WASD to move.</p>
+        <button id="reset-best" type="button" class="link">Reset best score</button>
+      </aside>
+
+      <div id="overlay" hidden>
+        <div class="overlay-card">
+          <h2 id="overlay-title">Game over</h2>
+          <p id="overlay-text">No more moves.</p>
+          <div class="overlay-buttons">
+            <button id="overlay-primary" type="button">Try again</button>
+            <button id="overlay-secondary" type="button" hidden>Keep going</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
