@@ -3,6 +3,10 @@
 A 3D take on 2048: every tile is a rough-hewn stone block sitting in a slate tray. Merging two
 blocks smashes them together with flying rubble, dust, a camera kick and a crunch.
 
+**Play it: https://cloudylo001.github.io/2048/**
+
+Pushing to `main` rebuilds and redeploys the site through `.github/workflows/deploy.yml`.
+
 ## Run
 
 ```bash
